@@ -1,0 +1,22 @@
+﻿
+
+@{
+    ViewBag.title = "Home";
+}
+
+<script>
+    function set_body_height() {
+        $('body').height($(window).height());
+    }
+    $(document).ready(function () {
+        $(window).bind('resize', set_body_height);
+        set_body_height();
+    });
+</script>
+
+<ul>
+    <li><a href="display/127.0.0.1/5400">Display</a></li>
+    <li><a href="display/127.0.0.1/5400/4">Display With Rate</a></li>
+    <li><a href="save/127.0.0.1/5400/4/10/flight1">Save</a></li>
+    <li><a href="display/flight1/4">Load</a></li>
+</ul>

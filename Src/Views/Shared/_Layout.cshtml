@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .fit {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .center {
+            display: block;
+            margin: auto;
+        }
+
+        .map {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: red;
+        }
+
+        li {
+            padding: 10px;
+        }
+
+        ul {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        html {
+            overflow-y: hidden;
+        }
+    </style>
+    <style>
+        #plane {
+            position: absolute;
+            top: @Session["lat"]%;
+            left: @Session["lon"]%;
+        }
+    </style>
+</head>
+
+<body background="/Content/export-map-share.png" class="center fit" style="background-size:100% 100%">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <svg id="lines" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%"></svg>
+    <script>
+        function set_body_height() {
+            $('body').height($(window).height());
+        }
+        $(document).ready(function () {
+            $(window).bind('resize', set_body_height);
+            set_body_height();
+        });
+    </script>
+
+    @RenderBody()
+</body>
+</html>
